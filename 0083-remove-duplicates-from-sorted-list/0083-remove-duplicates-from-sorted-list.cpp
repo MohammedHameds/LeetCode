@@ -22,6 +22,10 @@ public:
                 }
             }
         }
+        else
+        {
+            delete currPtr;
+        }
         return head;
     }
 };
