@@ -4,33 +4,24 @@ public:
     ListNode *deleteDuplicates(ListNode *head)
     {
         ListNode *currPtr = head;
-        ListNode *oldPtr = NULL;
 
         if (currPtr)
         {
-            while (currPtr)
+            while (currPtr->next)
             {
 
-                if (oldPtr && oldPtr->val == currPtr->val)
+                if (currPtr->val == currPtr->next->val)
                 {
-                    ListNode *deletePtr = currPtr;
-                    oldPtr->next = currPtr->next;
-                    currPtr = currPtr->next;
+                    ListNode *deletePtr = currPtr->next;
+                    currPtr->next = currPtr->next->next;
                     delete deletePtr;
                 }
                 else
                 {
-                    oldPtr = currPtr;
                     currPtr = currPtr->next;
                 }
             }
         }
-        else
-        {
-            delete currPtr;
-            delete oldPtr;
-        }
-        
         return head;
     }
 };
