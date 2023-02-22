@@ -10,6 +10,7 @@ public:
         {
             while (currPtr)
             {
+
                 if (oldPtr && oldPtr->val == currPtr->val)
                 {
                     ListNode *deletePtr = currPtr;
@@ -24,6 +25,12 @@ public:
                 }
             }
         }
+        else
+        {
+            delete currPtr;
+            delete oldPtr;
+        }
+        
         return head;
     }
 };
